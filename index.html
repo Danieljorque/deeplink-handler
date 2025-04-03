@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Deep Links</title>
+    <script>
+        function generateDeepLink() {
+            const inputUrl = document.getElementById("inputUrl").value.trim();
+            if (!inputUrl) {
+                alert("Por favor, ingresa una URL.");
+                return;
+            }
+            
+            // Reemplaza la URL base por el esquema de la app
+            const deepLink = inputUrl.replace("https://myapp.com", "myapp://");
+            document.getElementById("deepLinkOutput").value = deepLink;
+        }
+    </script>
+</head>
+<body>
+    <h1>Generador de Deep Links</h1>
+    <label for="inputUrl">Ingresa la URL:</label>
+    <input type="text" id="inputUrl" placeholder="https://myapp.com/ruta" size="50">
+    <button onclick="generateDeepLink()">Generar Deep Link</button>
+    <br><br>
+    <label for="deepLinkOutput">Deep Link generado:</label>
+    <input type="text" id="deepLinkOutput" size="50" readonly>
+</body>
+</html>
