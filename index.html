@@ -11,9 +11,14 @@
                 alert("Por favor, ingresa una URL.");
                 return;
             }
-            
-            // Reemplaza la URL base por el esquema de la app
-            const deepLink = inputUrl.replace("https://myapp.com", "myapp://");
+
+            // Verifica si la URL contiene la parte "https://myapp.com" y la reemplaza por el deep link
+            let deepLink = inputUrl;
+            if (deepLink.startsWith("https://myapp.com")) {
+                deepLink = deepLink.replace("https://myapp.com", "myapp://");
+            }
+
+            // Muestra el deep link generado
             document.getElementById("deepLinkOutput").value = deepLink;
         }
     </script>
